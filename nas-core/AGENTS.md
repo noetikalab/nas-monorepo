@@ -171,6 +171,18 @@ sudo docker compose logs nas-core -f
 2. `handler/file.go` — `hasACLWrite` 改为先用 LDAP 查 UID，再用 `user:{uid}:rwx` 匹配 `getfacl` 输出
 3. 所有 `exec.Command().Run()` → `CombinedOutput()`，失败时记录日志
 
+### Samba ldapsam + network_mode:host 下 LDAP 地址不能用 Docker 服务名（已解决 ✅）
+
+**现象**：SMB 端口 445 无监听，容器内 `smbd` 进程为僵尸（defunct）状态。smbclient 连接报 `NT_STATUS_CONNECTION_REFUSED`。authd 和 openldap 均正常。
+
+**根因**：`network_mode: host` 下容器不在 Docker compose 默认网络内，`smb.conf` 中的 `ldap://openldap:389` 无法解析。smbd 启动时连不上 LDAP → 崩溃退出。
+
+**修复**：`deploy/smb.conf` 中 LDAP 地址改为 `ldap://127.0.0.1:389`。
+
+**影响范围**：所有使用 `network_mode: host` 的容器。
+
+**注意事项**：修复前注册的用户缺少 `sambaNTPassword` 属性，SMB 登录会失败。需重新注册用户。
+
 ## 约束
 
 - **Go 版本**：Dockerfile 固定 `golang:1.25`（依赖要求 go >= 1.25）
