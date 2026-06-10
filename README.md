@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/React_Native-0.85-61DAFB?logo=react" />
   <img src="https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs" />
   <img src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker" />
-  <img src="https://img.shields.io/badge/License-Proprietary-red" />
+  <img src="https://img.shields.io/badge/License-Pending-lightgrey" />
 </p>
 
 ---
@@ -261,8 +261,4 @@ nas-all-source/
 | [离线部署操作指南](https://my.feishu.cn/docx/XkRKdWFZXoQsujxtBWUcR9rrnUc) | 无网络一键部署 |
 | [演示剧本](https://my.feishu.cn/docx/T6NMdY7KAoDVedxVRW8cRrbAntg) | 半小时 demo 串讲 |
 
----
 
-## License
-
-Proprietary — All Rights Reserved.
