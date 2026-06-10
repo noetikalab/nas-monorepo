@@ -1,0 +1,16 @@
+# NAS Web 管理后台 — 独立部署
+# 前置条件：authd 后端已在本机 :8080 运行
+#
+# 启动：
+#   sudo docker compose up --build -d
+#
+# 访问：
+#   http://localhost （nginx :80 → Next.js :3000，API 反代到 authd :8080）
+
+services:
+  nas-web:
+    build: .
+    network_mode: host
+    restart: unless-stopped
+    container_name: nas-web
+    image: nas-web

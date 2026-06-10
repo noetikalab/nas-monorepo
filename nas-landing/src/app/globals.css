@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-display), system-ui, sans-serif;
+  --font-mono: var(--font-mono), monospace;
+}
+
+/* ===================================================================
+ * Cyber-Industrial Terminal Theme
+ * =================================================================== */
+:root {
+  --bg-deep: #050a0f;
+  --bg-panel: #0a1119;
+  --glow-green: #00ff41;
+  --glow-cyan: #00d4ff;
+  --glow-purple: #b388ff;
+  --glow-amber: #ffa940;
+  --glow-rose: #ff6b9d;
+  --text-primary: #d4e0f0;
+  --text-secondary: #6b8299;
+  --border: #1a2a3a;
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+}
+
+/* Cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+  color: var(--glow-green);
+}

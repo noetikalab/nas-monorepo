@@ -1,0 +1,9 @@
+<resources>
+    <!-- NFC NDEF 标签技术过滤器 -->
+    <tech-list>
+        <tech>android.nfc.tech.Ndef</tech>
+    </tech-list>
+    <tech-list>
+        <tech>android.nfc.tech.NdefFormatable</tech>
+    </tech-list>
+</resources>
